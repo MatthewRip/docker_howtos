@@ -1,0 +1,7 @@
+# indo
+ACZ
+STZ
+
+postgres database
+
+

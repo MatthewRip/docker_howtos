@@ -1,0 +1,41 @@
+# Download Postgres Docker image / get lastest version from dockerhub
+docker pull postgres 
+
+# start image/create container 
+docker run --name <name-given-to-container> -e POSTGRES_PASSWORD=guest -d postgres
+    -d flag is identifying which image is being used
+
+# create database in container
+docker exec -u <user-name> <name-given-to-container> createdb <database-name>
+
+# connect to db 
+docker exec -it <name-given-to-container psql -U <user-name> -d <database-name>
+
+# list tables
+\dt
+
+
+
+-------------------------------------------------------------------------------------------------
+# create docker file
+touch Dockerfile
+
+
+# create volume for docker image/container
+docker volume create <volume-name>
+
+-------------------------------------------------------------------------------------------------
+
+# running docker compose
+navigate to working directory
+
+# run 
+docker compose up
+
+# stop 
+docker compose down
+
+-------------------------------------------------------------------------------------------------
+# in a new terminal access database
+docker exec -it <name-given-to-container psql -U <user-name> -d <database-name>
+    docker exec -it postgres_db-source_postgres-1 psql -U user
